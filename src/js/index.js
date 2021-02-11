@@ -1,3 +1,7 @@
+import '../css/app.scss'; 
+import Research from './research';
+import Test from './test';
+
 class App {
     constructor () {
         this.initApp();
@@ -5,6 +9,8 @@ class App {
 
     initApp () {
       // Start application
+      new Research();
+      new Test();
     }
 }
 

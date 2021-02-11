@@ -2,17 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Random Quotes App</title>
+    <title>The Cocktail Bar</title>
 </head>
 <body>
-<div class="background js-background">
-</div>
-<div class="container js-container">
-    <p class="greeting js-greeting"></p>
-    <div class="quote js-quote">
-        <div class="quote__text js-quote-text"></div>
-        <p class="quote__author js-quote-author"></p>
+    <header>
+        <img class="logo" src="images/cocktail.png" alt="Logo">
+        <div class="search_bar">
+            <input id="input" type="text" placeholder="Cocktail...">
+            <div class="show"></div>
+            <p>Or a random cocktail</p>
+        </div>
+    </header>
+    <div class="wrap">
+        <p class="result"></p>
+        <div class="image"></div>
+        <p class="recipe"></p>
+        <div class="ingredients">
+            Ingredients : <br><br><ul class="list"></ul>
+        </div>
     </div>
-</div>
 </body>
 </html>

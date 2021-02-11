@@ -1,7 +1,13 @@
 @font-face {
-  font-family: 'Din Pro';
-  src: url("../fonts/DINPro-Regular.woff") format("woff");
-  font-weight: normal;
+  font-family: 'Poppins';
+  src: url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
 }
 
-$font-main: 'Din Pro', sans-serif;
+$font-main: 'Poppins', sans-serif;
+
+@font-face {
+  font-family: 'Brush Script';
+  src: url("../fonts/Brush Script.ttf");
+}
+
+$font-second: 'Brush Script', sans-serif;
