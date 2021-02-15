@@ -8,17 +8,25 @@
     <header>
         <img class="logo" src="images/cocktail.png" alt="Logo">
         <div class="search_bar">
-            <input id="input" type="text" placeholder="Cocktail...">
-            <div class="show"></div>
+            <div class="searching">
+                <input id="input" type="text" placeholder="Cocktail...">
+                <div class="show"></div>
+            </div>
             <p>Or a random cocktail</p>
         </div>
     </header>
+    <div class="transition"><img src="images/cocktail.png" alt="logo"></div>
     <div class="wrap">
         <p class="result"></p>
-        <div class="image"></div>
-        <p class="recipe"></p>
-        <div class="ingredients">
-            Ingredients : <br><br><ul class="list"></ul>
+        <div>
+            <div>
+                <div class="ingredients">
+                    <p>Ingredients : </p><br><br><ul class="list"></ul>
+                </div>
+                <p>Recipe : </p>
+                <p class="recipe"></p>
+            </div>
+            <div class="image"></div>
         </div>
     </div>
 </body>

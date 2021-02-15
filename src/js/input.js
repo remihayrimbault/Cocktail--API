@@ -38,16 +38,12 @@ export default class Input {
     }
 
     showResult (listresults) {
-        let list = [];
         this.els.show.empty();
-        for (let i = 0; i < (listresults.drinks.length+1); i++) {
-            console.log(listresults.drinks[i].idDrink);
+        for (let i = 0; i < 10; i++) {
             const cocktailTitle = listresults.drinks[i].strDrink;
             const cocktailId = listresults.drinks[i].idDrink;
-            const cocktailThumb = listresults.drinks[i].strDrinkThumb;
-            this.els.show.innerHTML += `<a id='${cocktailId}'><img src='${cocktailThumb}' alt='Image de cocktail'><p>${cocktailTitle}</p></a>`;
+            this.els.show.append(`<a id='${cocktailId}'><p>${cocktailTitle}</p></a>`);
         }
-        console.log(list);
     }
 
 
