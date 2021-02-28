@@ -1,4 +1,6 @@
 import $ from 'jquery';
+import Research from "./research";
+import Transition from "./transition";
 
 /*
 * Objectif : récupérer une image aléatoire à partir d'une API et l'afficher
@@ -16,10 +18,7 @@ export default class Input {
 
     initEls () {
         this.els = {
-            input : $('input'),
-            val : "",
-            list : [],
-            show : $('div.show')
+            show : $('div.show'),
         }
         this.url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
     }
@@ -37,15 +36,47 @@ export default class Input {
             });
     }
 
+    show_anim () {
+        $('body').css({
+            "overflow" : "hidden"
+        });
+        $('div.transition').css({
+            "transition" : "all 0.1s ease-in-out",
+            "z-index" : "1000",
+            "opacity" : "100%",
+        });
+    }
+
+    hide_anim () {
+        $('body').css({
+            "overflow" : "visible"
+        });
+        $('div.transition').css({
+            "transition" : "all 0.5s ease-in-out",
+            "z-index" : "-1000",
+            "opacity" : "0%",
+        });
+    }
+
+    transition () {
+        this.show_anim();
+        setTimeout(this.hide_anim, 1000);
+    }
+
     showResult (listresults) {
         this.els.show.empty();
         for (let i = 0; i < 10; i++) {
             const cocktailTitle = listresults.drinks[i].strDrink;
             const cocktailId = listresults.drinks[i].idDrink;
-            this.els.show.append(`<a id='${cocktailId}'><p>${cocktailTitle}</p></a>`);
+            this.els.show.append(`<div class="test" id='${cocktailId}'><p>${cocktailTitle}</p></div>`);
+
+            $('div.show > div').click(function(){
+                new Research().searchResult(($(this)).attr('id'));
+                new Transition();
+                $('div.show').css({
+                    "display" : "none"
+                });
+            })
         }
     }
-
-
-
 }

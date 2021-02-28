@@ -1,6 +1,6 @@
 import '../css/app.scss'; 
 import Research from './research';
-import Test from './test';
+import Transition from "./transition";
 
 
 class App {
@@ -10,8 +10,8 @@ class App {
 
     initApp () {
       // Start application
-      new Research();
-      new Test();
+        new Transition();
+      new Research().init();
     }
 }
 

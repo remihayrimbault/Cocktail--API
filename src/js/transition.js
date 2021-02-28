@@ -2,7 +2,7 @@ import Research from './research';
 import Input from './input';
 import $ from 'jquery';
 
-export default class Test {
+export default class Transition {
     constructor () {
         this.initApp();
         this.initEvents();
@@ -23,39 +23,12 @@ export default class Test {
             });
         }
 
-        function show_anim () {
-            $('body').css({
-                "overflow" : "hidden"
-            });
-            $('div.transition').css({
-                "transition" : "all 0.1s ease-in-out",
-                "z-index" : "1000",
-                "opacity" : "100%",
-            });
-        }
-
-        function hide_anim () {
-            $('body').css({
-                "overflow" : "visible"
-            });
-            $('div.transition').css({
-                "transition" : "all 0.5s ease-in-out",
-                "z-index" : "-1000",
-                "opacity" : "0%",
-            });
-        }
-
-        function transition () {
-            show_anim();
-            setTimeout(hide_anim, 1000);
-        }
-
         $('div.search_bar > p').click(function(){
-            transition();
+            new Transition();
             new Research().init();
         })
 
-        $('div.show').on('click' , 'div' , function() {
+        $('div.test').click(function(){
             console.log("ok");
         })
 
@@ -79,6 +52,7 @@ export default class Test {
     }
 
     initEvents () {
+
         function show_anim () {
             $('body').css({
                 "overflow" : "hidden"

@@ -12,7 +12,6 @@ export default class Research {
 
     constructor () {
         this.initEls();
-        this.initEvents();
     }
 
     initEls () {
@@ -21,15 +20,8 @@ export default class Research {
             thumbnail : $('.image'),
             recipe : $('.recipe'),
             list_ingredients : $('.list'),
-            search : $('input'),
-            random : $('header > .search_bar > p'),
-            button : $('header > .search_bar > img')
         };
         this.url = 'https://www.thecocktaildb.com/api/json/v1/1/';
-    }
-
-    initEvents () {
-        this.init();
     }
 
     init () {
@@ -69,19 +61,12 @@ export default class Research {
         const cocktailRecipe = cocktailData.drinks[0].strInstructions;
         const cocktailThumb = cocktailData.drinks[0].strDrinkThumb;
 
-        let list_ingr = [];
-        let list_meas = [];
         let list = [];
-
-        for (let i = 1; i < 16; i++) {
-            list_ingr.push(eval("cocktailData.drinks[0].strIngredient"+i));
-            list_meas.push(eval("cocktailData.drinks[0].strMeasure"+i));
-        }
-
         list.push(' - ');
+
         for (let i = 1; i < 16; i++) {
-            let ingr = list_ingr[i];
-            let mesu = list_meas[i];
+            let ingr = eval("cocktailData.drinks[0].strIngredient"+i);
+            let mesu = eval("cocktailData.drinks[0].strMeasure"+i);
             if (ingr != null) {
                 list.push(ingr);
 
